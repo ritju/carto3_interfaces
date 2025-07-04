@@ -12,10 +12,10 @@ string file_name
 bool is_georeferenced
 
 # When georeferenced, this indicates the latitude of the origin of the map.
-double latitude
+float64 latitude
 
 # When georeferenced, this indicates the longitude of the origin of the map.
-double longitude
+float64 longitude
 
 # When georeferenced, this indicates the azimuth of the y-axis of the map.
-double azimuth
+float64 azimuth
