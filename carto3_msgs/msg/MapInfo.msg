@@ -7,3 +7,15 @@ uint8 format
 
 # File name of the map.
 string file_name
+
+# Indicates whether the map is georeferenced.
+bool is_georeferenced
+
+# When georeferenced, this indicates the latitude of the origin of the map.
+double latitude
+
+# When georeferenced, this indicates the longitude of the origin of the map.
+double longitude
+
+# When georeferenced, this indicates the azimuth of the y-axis of the map.
+double azimuth
