@@ -29,3 +29,5 @@ float64 global_localization_base_resolution
 # Maximum voxel levels for performing global localization.
 uint8 global_localization_voxel_levels
 
+# Initial pose search range when using GNSS for global localization.
+float64 global_localization_gnss_search_range
