@@ -20,14 +20,8 @@ float64 georeference_longitude
 # When georeferenced, this indicates the azimuth of the y-axis of the map.
 float64 georeference_azimuth
 
-# Indicates whether configuration for global localization is provided.
-bool has_global_localization_config
+# Keys of localization configurations
+string[] config_keys
 
-# Base voxel resolution for performing global localization.
-float64 global_localization_base_resolution
-
-# Maximum voxel levels for performing global localization.
-uint8 global_localization_voxel_levels
-
-# Initial pose search range when using GNSS for global localization.
-float64 global_localization_gnss_search_range
+# Values of localization configurations
+string[] config_values
