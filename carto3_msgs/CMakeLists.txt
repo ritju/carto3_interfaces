@@ -25,6 +25,9 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
   ADD_LINTER_TESTS
 )
+ament_target_dependencies(${PROJECT_NAME}
+ geometry_msgs
+)
 
 ament_export_dependencies(rosidl_default_runtime)
 

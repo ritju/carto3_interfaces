@@ -42,8 +42,8 @@ float64[6] wheel_odom_k
 float64[6] wheel_odom_variances
 float64 wheel_odom_p
 
-geometry_msgs/msg/Pose localizer_pose
-geometry_msgs/msg/Vector3 localizer_velocity
+geometry_msgs/Pose localizer_pose
+geometry_msgs/Vector3 localizer_velocity
 float64[6] localizer_bias
 float64 localizer_scan_to_scan_matching_score
 float64 localizer_scan_to_scan_matching_hessian_eig_min
