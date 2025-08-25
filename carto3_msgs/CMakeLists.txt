@@ -13,10 +13,13 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+ament_auto_find_build_dependencies()
 
 set(msg_files
   "msg/LocalizationState.msg"
   "msg/MapInfo.msg"
+  "msg/SystemStatus.msg"
+  "msg/FrameStatus.msg"
 )
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
