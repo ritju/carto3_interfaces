@@ -13,7 +13,7 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
-ament_auto_find_build_dependencies()
+find_package(geometry_msgs REQUIRED)
 
 set(msg_files
   "msg/LocalizationState.msg"
