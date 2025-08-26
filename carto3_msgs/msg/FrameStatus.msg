@@ -58,12 +58,10 @@ float64 localizer_scan_to_map_matching_score
 float64 localizer_scan_to_map_matching_hessian_eig_min
 int32 localizer_warning_flags
 
-int64 cpu_memory_points
-int64 cpu_memory_voxelmap
+int64 cpu_memory_map
 int64 cpu_memory_odometry_frames
 int64 cpu_memory_factors
 
-int64 gpu_memory_points
-int64 gpu_memory_voxelmap
+int64 gpu_memory_map
 int64 gpu_memory_odometry_frames
 int64 gpu_memory_factors
