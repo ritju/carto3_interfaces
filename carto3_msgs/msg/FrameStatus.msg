@@ -35,14 +35,14 @@ float64 lidar_dist_max
 float64[] lidar_voxelmap_resolutions
 
 int32 imu_integrated_frames
-float64[6] imu_displacement
+float64[6] imu_measurement
 
 bool wheel_odom_available
 int32 wheel_odom_integrated_frames
 float64 wheel_odom_angular_displacement_left
 float64 wheel_odom_angular_displacement_right
-float64[6] wheel_odom_displacement
-float64[6] wheel_odom_displacement_residual
+float64[6] wheel_odom_measurement
+float64[6] wheel_odom_measurement_residual
 float64 wheel_odom_wheel_base
 float64 wheel_odom_wheel_radius
 float64[6] wheel_odom_k
