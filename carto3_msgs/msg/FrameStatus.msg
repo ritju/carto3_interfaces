@@ -67,3 +67,5 @@ int64 cpu_memory_factors
 int64 gpu_memory_map
 int64 gpu_memory_odometry_frames
 int64 gpu_memory_factors
+
+int64 lidar_timestamp_max
