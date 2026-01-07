@@ -7,6 +7,19 @@ uint8 LOCALIZER_WARNING_SMOOTHER_FALLBACK                     = 16
 uint8 LOCALIZER_WARNING_CLOCK_REWIND                          = 32
 uint8 LOCALIZER_WARNING_CLOCK_SKEW                            = 64
 
+uint16 FACTOR_TYPE_SCAN_TO_SCAN           = 1
+uint16 FACTOR_TYPE_SCAN_TO_MAP            = 2
+uint16 FACTOR_TYPE_IMU                    = 3
+uint16 FACTOR_TYPE_WHEEL                  = 4
+uint16 FACTOR_TYPE_WHEEL_SLIP_PRIOR       = 5
+uint16 FACTOR_TYPE_WHEEL_INTRINSICS_PRIOR = 6
+uint16 FACTOR_TYPE_POSE_DAMPING           = 7
+uint16 FACTOR_TYPE_IMU_BIAS_DAMPING       = 8
+uint16 FACTOR_TYPE_IMU_BIAS_BETWEEN       = 9
+uint16 FACTOR_TYPE_IMU_BIAS_PRIOR         = 10
+uint16 FACTOR_TYPE_VELOCITY_PRIOR         = 11
+uint16 FACTOR_TYPE_VELOCITY_BETWEEN       = 12
+
 # ID of the diagnostic event
 int64 id
 
@@ -69,3 +82,7 @@ int64 gpu_memory_odometry_frames
 int64 gpu_memory_factors
 
 int64 lidar_timestamp_max
+
+int16[] factor_types
+int16[] factor_counts
+float[] factor_errors
