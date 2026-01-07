@@ -85,4 +85,4 @@ int64 lidar_timestamp_max
 
 int16[] factor_types
 int16[] factor_counts
-float[] factor_errors
+float32[] factor_errors
