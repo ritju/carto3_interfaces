@@ -87,3 +87,4 @@ int32 version 1000
 int16[] factor_types
 int16[] factor_counts
 float32[] factor_errors
+float64[] factor_pose_information
