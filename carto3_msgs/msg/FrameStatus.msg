@@ -83,8 +83,15 @@ int64 gpu_memory_factors
 
 int64 lidar_timestamp_max
 
-int32 version 1000
+int32 version 1001
+
+# available since v1000
 int16[] factor_types
 int16[] factor_counts
 float32[] factor_errors
 float64[] factor_pose_information
+
+# available since v1001
+
+# 6-DoF preconditioned step for current pose by each factor type.
+float32[] factor_preconditioned_step
