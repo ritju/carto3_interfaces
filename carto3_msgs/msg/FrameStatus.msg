@@ -83,15 +83,20 @@ int64 gpu_memory_factors
 
 int64 lidar_timestamp_max
 
-int32 version 1001
+int32 version 1000
 
-# available since v1000
+# Fields below are available since v1000
 int16[] factor_types
 int16[] factor_counts
-float32[] factor_errors
-float64[] factor_pose_information
 
-# available since v1001
+# Contains 6 dominance score of the factor to each eigenmode for each factor type
+float32[] factor_mode_dominance
 
-# 6-DoF preconditioned step for current pose by each factor type.
-float32[] factor_preconditioned_step
+# Contains ablation log-determinant gain for each factor type
+float32[] factor_information_volume_dominance
+
+# Contains 6 6-DoF eigenvectors which represent the contraint direction of the pose marginal.
+float64[] modes
+
+# Contains 6 eigenvalues which represent the amount of information resisting motion along an eigenmode of the pose marginal.
+float64[] mode_stiffness
