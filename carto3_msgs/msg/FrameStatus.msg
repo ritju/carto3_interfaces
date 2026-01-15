@@ -100,3 +100,6 @@ float64[] modes
 
 # Contains 6 eigenvalues which represent the amount of information resisting motion along an eigenmode of the pose marginal.
 float64[] mode_stiffness
+
+# Inlier ratio by voxelmap resolution level
+float32[] scan_to_map_matching_inlier_ratios
