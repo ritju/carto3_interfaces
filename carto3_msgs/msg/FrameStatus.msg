@@ -103,3 +103,6 @@ float64[] mode_stiffness
 
 # Inlier ratio by voxelmap resolution level
 float32[] scan_to_map_matching_inlier_ratios
+
+# Isotropy of the scan
+float32 scan_isotropy
