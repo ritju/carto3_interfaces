@@ -13,5 +13,8 @@ uint8 STATUS_UNGROUNDED = 3
 # Localization service is correctly initialized and tracking the pose of the system.
 uint8 STATUS_GROUNDED   = 4
 
+# Failed to initialize localization with given initial pose.
+uint8 STATUS_GROUNDING_FAILED = 5
+
 # Status of the localization service
 uint8 status
