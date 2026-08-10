@@ -21,6 +21,13 @@ uint16 FACTOR_TYPE_IMU_BIAS_PRIOR         = 10
 uint16 FACTOR_TYPE_VELOCITY_PRIOR         = 11
 uint16 FACTOR_TYPE_VELOCITY_BETWEEN       = 12
 
+uint8 SCAN_GEOMETRY_STATUS_DISABLED                    = 0
+uint8 SCAN_GEOMETRY_STATUS_VALID                       = 1
+uint8 SCAN_GEOMETRY_STATUS_INSUFFICIENT_POINTS         = 2
+uint8 SCAN_GEOMETRY_STATUS_INVALID_CONFIGURATION       = 3
+uint8 SCAN_GEOMETRY_STATUS_WHITENING_FAILURE           = 4
+uint8 SCAN_GEOMETRY_STATUS_EIGEN_DECOMPOSITION_FAILURE = 5
+
 # ID of the diagnostic event
 int64 id
 
@@ -84,7 +91,7 @@ int64 gpu_memory_factors
 
 int64 lidar_timestamp_max
 
-int32 version 1000
+int32 version 1001
 
 # Fields below are available since v1000
 int16[] factor_types
@@ -110,3 +117,23 @@ float32[] scan_to_scan_matching_inlier_ratios
 
 # Isotropy of the scan
 float32 scan_isotropy
+
+# Fields below are available since v1001
+
+# Result of scan-geometry analysis
+uint8 scan_geometry_status
+
+# Points used for computing scan-geometry analysis
+uint32 scan_geometry_valid_points
+
+# Euclidean-normalized Pose3 tangent modes.
+# Mode-major order:
+# mode0[rx, ry, rz, tx, ty, tz], ..., mode5[rx, ry, rz, tx, ty, tz].
+# A mode and its negative represent the same direction.
+float32[36] scan_geometry_tangent_modes
+
+# Weak-to-strong generalized SNR
+float32[6] scan_geometry_snr
+
+# Information weights actually applied by the gate
+float32[6] scan_geometry_weights
