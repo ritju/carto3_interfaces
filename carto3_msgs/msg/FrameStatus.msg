@@ -84,7 +84,7 @@ int64 gpu_memory_factors
 
 int64 lidar_timestamp_max
 
-int32 version 1000
+int32 version 1001
 
 # Fields below are available since v1000
 int16[] factor_types
@@ -110,3 +110,11 @@ float32[] scan_to_scan_matching_inlier_ratios
 
 # Isotropy of the scan
 float32 scan_isotropy
+
+# Fields below are available since v1001
+
+# Residual suppression caused by robust kernel in scan to map matching at each voxel resolution level.
+float32[] scan_to_map_robust_suppression_ratios
+
+# Residual suppression caused by robust kernel in scan to scan matching at each voxel resolution level.
+float32[] scan_to_scan_robust_suppression_ratios
