@@ -72,12 +72,15 @@ float64 wheel_odom_angular_displacement_left
 float64 wheel_odom_angular_displacement_right
 float64[6] wheel_odom_measurement
 float64[6] wheel_odom_measurement_residual
+# Fixed geometry [m]: DIFFERENTIAL uses left-to-right track width;
+# FRONT_STEER uses front-to-rear axle distance.
 float64 wheel_odom_wheel_base
+# Fixed nominal radius [m] for DIFFERENTIAL; unused (zero) for FRONT_STEER.
 float64 wheel_odom_wheel_radius
 # DIFFERENTIAL: [track width, track width, left radius, right radius, left wheel
 # angular-rate slip, right wheel angular-rate slip], with units [m, m, m, m, rad/s, rad/s].
-# FRONT_STEER: [speed scale, curvature gain, steering bias, axle distance, linear
-# slip, yaw slip], with units [1, 1, rad, m, m/s, rad/s]. All values are physical.
+# FRONT_STEER: [speed scale, curvature gain, steering bias, reserved (zero), linear
+# slip, yaw slip], with units [1, 1, rad, -, m/s, rad/s]. Nonreserved values are physical.
 float64[6] wheel_odom_k
 float64[6] wheel_odom_variances
 float64 wheel_odom_p
