@@ -21,6 +21,9 @@ uint16 FACTOR_TYPE_IMU_BIAS_PRIOR         = 10
 uint16 FACTOR_TYPE_VELOCITY_PRIOR         = 11
 uint16 FACTOR_TYPE_VELOCITY_BETWEEN       = 12
 
+uint8 WHEEL_ODOM_MODEL_DIFFERENTIAL = 0
+uint8 WHEEL_ODOM_MODEL_FRONT_STEER  = 1
+
 # ID of the diagnostic event
 int64 id
 
@@ -53,14 +56,28 @@ float64[] lidar_voxelmap_resolutions
 int32 imu_integrated_frames
 float64[6] imu_measurement
 
+# Whether a wheel odometry factor was added, including missing-input fallback.
 bool wheel_odom_available
+# FRONT_STEER: number of valid real feedback samples in the current LiDAR interval
+# when a factor is added. Synthetic fallback segments are not counted.
 int32 wheel_odom_integrated_frames
+# DIFFERENTIAL: integrated left wheel angle [rad], including missing-input fallback.
+# FRONT_STEER: raw rear-axle center linear velocity [m/s] from the last valid real
+# feedback integrated in the current LiDAR interval. Insufficient-input fallback
+# retains the value from the last successfully integrated interval, or zero if none.
 float64 wheel_odom_angular_displacement_left
+# DIFFERENTIAL: integrated right wheel angle [rad], including missing-input fallback.
+# FRONT_STEER: raw steering angle [rad, left positive] from the same feedback as
+# the velocity above, with the same insufficient-input fallback behavior.
 float64 wheel_odom_angular_displacement_right
 float64[6] wheel_odom_measurement
 float64[6] wheel_odom_measurement_residual
 float64 wheel_odom_wheel_base
 float64 wheel_odom_wheel_radius
+# DIFFERENTIAL: [track width, track width, left radius, right radius, left wheel
+# angular-rate slip, right wheel angular-rate slip], with units [m, m, m, m, rad/s, rad/s].
+# FRONT_STEER: [speed scale, curvature gain, steering bias, axle distance, linear
+# slip, yaw slip], with units [1, 1, rad, m, m/s, rad/s]. All values are physical.
 float64[6] wheel_odom_k
 float64[6] wheel_odom_variances
 float64 wheel_odom_p
@@ -84,7 +101,7 @@ int64 gpu_memory_factors
 
 int64 lidar_timestamp_max
 
-int32 version 1001
+int32 version 1002
 
 # Fields below are available since v1000
 int16[] factor_types
@@ -118,3 +135,9 @@ float32[] scan_to_map_robust_suppression_ratios
 
 # Residual suppression caused by robust kernel in scan to scan matching at each voxel resolution level.
 float32[] scan_to_scan_robust_suppression_ratios
+
+# Fields below are available since v1002
+
+# Selects the interpretation of wheel odometry fields above. Versions below
+# 1002 only support DIFFERENTIAL and do not contain this field.
+uint8 wheel_odom_model 0
