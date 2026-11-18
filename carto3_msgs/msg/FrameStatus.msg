@@ -56,32 +56,37 @@ float64[] lidar_voxelmap_resolutions
 int32 imu_integrated_frames
 float64[6] imu_measurement
 
-# Whether a wheel odometry factor was added, including missing-input fallback.
+# Whether this frame has a wheel odometry measurement.
 bool wheel_odom_available
-# FRONT_STEER: number of valid real feedback samples in the current LiDAR interval
-# when a factor is added. Synthetic fallback segments are not counted.
+
+# Number of real feedback frames used in this LiDAR interval's wheel odometry.
 int32 wheel_odom_integrated_frames
-# DIFFERENTIAL: integrated left wheel angle [rad], including missing-input fallback.
-# FRONT_STEER: raw rear-axle center linear velocity [m/s] from the last valid real
-# feedback integrated in the current LiDAR interval. Insufficient-input fallback
-# retains the value from the last successfully integrated interval, or zero if none.
+
+# DIFFERENTIAL: left wheel angular displacement over the LiDAR interval [rad].
+# FRONT_STEER: signed rear-axle travel, integral(v_raw dt) [m].
 float64 wheel_odom_angular_displacement_left
-# DIFFERENTIAL: integrated right wheel angle [rad], including missing-input fallback.
-# FRONT_STEER: raw steering angle [rad, left positive] from the same feedback as
-# the velocity above, with the same insufficient-input fallback behavior.
+
+# DIFFERENTIAL: right wheel angular displacement over the LiDAR interval [rad].
+# FRONT_STEER: nominal yaw increment, integral(v_raw / L * tan(angle_raw) dt) [rad],
+# where L is the fixed axle distance.
 float64 wheel_odom_angular_displacement_right
+
 float64[6] wheel_odom_measurement
 float64[6] wheel_odom_measurement_residual
+
 # Fixed geometry [m]: DIFFERENTIAL uses left-to-right track width;
 # FRONT_STEER uses front-to-rear axle distance.
 float64 wheel_odom_wheel_base
+
 # Fixed nominal radius [m] for DIFFERENTIAL; unused (zero) for FRONT_STEER.
 float64 wheel_odom_wheel_radius
-# DIFFERENTIAL: [track width, track width, left radius, right radius, left wheel
-# angular-rate slip, right wheel angular-rate slip], with units [m, m, m, m, rad/s, rad/s].
+
+# DIFFERENTIAL: [track width, reserved (zero), left radius, right radius, left wheel
+# angular-rate slip, right wheel angular-rate slip], with units [m, -, m, m, rad/s, rad/s].
 # FRONT_STEER: [speed scale, curvature gain, steering bias, reserved (zero), linear
 # slip, yaw slip], with units [1, 1, rad, -, m/s, rad/s]. Nonreserved values are physical.
 float64[6] wheel_odom_k
+
 float64[6] wheel_odom_variances
 float64 wheel_odom_p
 
